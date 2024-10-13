@@ -1,0 +1,1 @@
+curl -X POST localhost:5000/pair -H 'content-type:application/json' -d '{"players": [{"id": "P1", "points": 3, "rank": 1, "can_get_bye": true, "cannot_be_paired_against_ids": []}], "power_pairing": false}' -v
