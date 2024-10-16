@@ -1,14 +1,14 @@
-FROM archlinux:latest
+FROM ubuntu:latest
 LABEL authors="karlosss"
 
 WORKDIR /app
 
-RUN pacman -Syu --noconfirm &&  \
-    pacman -S --noconfirm python python-pip gcc make cmake git pybind11
+RUN apt-get update -y &&  \
+    apt-get install -y python3 python3-pip gcc make cmake git libgmp-dev
 
 COPY . .
 
-RUN pip install --break-system-packages --root-user-action=ignore -r requirements.txt
+RUN pip install --break-system-packages --root-user-action=ignore --extra-index-url https://test.pypi.org/simple/ -r requirements.txt
 
 EXPOSE 5000
 
