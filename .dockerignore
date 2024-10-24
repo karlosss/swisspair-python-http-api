@@ -1,1 +1,3 @@
 test_curl.txt
+.gitignore
+__pycache__/
